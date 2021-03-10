@@ -87,16 +87,11 @@ public class Airport {
         }
         return experimentalPlanes;
     }
-
-
     public Airport sortByMaxDistance() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
-            }
-        });
+        planes.sort((o1, o2) -> o1.Get_Max_Flight_Distance()-o2.Get_Max_Flight_Distance());
         return this;
     }
+
 
 
     /**
@@ -104,20 +99,12 @@ public class Airport {
      * @return Airport
      */
     public Airport sortByMaxSpeed() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMS() - o2.getMS();
-            }
-        });
+        planes.sort((o1, o2) -> o1.getMS()-o2.getMS());
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMinLoadCapacity() - o2.getMinLoadCapacity();
-            }
-        });
+        planes.sort((o1, o2) -> o1.getMinLoadCapacity()-o2.getMinLoadCapacity());
         return this;
     }
 
@@ -125,13 +112,6 @@ public class Airport {
         return planes;
     }
 
-    private void print(Collection<? extends Plane> collection) {
-        Iterator<? extends Plane> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Plane plane = iterator.next();
-            Logger.getLogger(String.valueOf(plane));
-        }
-    }
 
     @Override
     public String toString() {
